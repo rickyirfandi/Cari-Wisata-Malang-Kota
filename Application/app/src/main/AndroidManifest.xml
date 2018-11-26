@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuActivity" />
-        <activity android:name=".BobotActivity"></activity>
+        <activity android:name=".BobotActivity" />
+        <activity android:name=".JenisWisataActivity"></activity>
     </application>
 
 </manifest>

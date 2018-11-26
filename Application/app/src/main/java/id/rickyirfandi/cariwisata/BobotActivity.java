@@ -1,5 +1,6 @@
 package id.rickyirfandi.cariwisata;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,8 @@ public class BobotActivity extends AppCompatActivity {
 private TextView txt_jarak, txt_harga, txt_rating, txt_review;
 private ImageButton btn_rendah_jarak, btn_rendah_harga, btn_rendah_rating,  btn_rendah_review,
                     btn_sedang_jarak, btn_sedang_harga, btn_sedang_rating, btn_sedang_review,
-                    btn_tinggi_jarak, btn_tinggi_harga, btn_tinggi_rating, btn_tinggi_review;
+                    btn_tinggi_jarak, btn_tinggi_harga, btn_tinggi_rating, btn_tinggi_review,
+                    btn_selanjutnya;
 final int BOBOT_RENDAH = 2;
 final int BOBOT_SEDANG = 5;
 final int BOBOT_TINGGI = 9;
@@ -37,6 +39,8 @@ final int BOBOT_TINGGI = 9;
         btn_tinggi_harga= findViewById(R.id.btn_tinggi_harga);
         btn_tinggi_rating = findViewById(R.id.btn_tinggi_rating);
         btn_tinggi_review = findViewById(R.id.btn_tinggi_review);
+
+        btn_selanjutnya = findViewById(R.id.btn_selanjutnya);
 
         btn_rendah_jarak.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +124,13 @@ final int BOBOT_TINGGI = 9;
             public void onClick(View v) {
                 Data.BOBOT_REVIEW = BOBOT_TINGGI;
                 txt_review.setText("Review : TINGGI");
+            }
+        });
+        btn_selanjutnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BobotActivity.this,JenisWisataActivity.class);
+                startActivity(intent);
             }
         });
     }
