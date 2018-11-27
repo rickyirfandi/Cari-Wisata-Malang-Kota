@@ -1,12 +1,16 @@
 package id.rickyirfandi.cariwisata;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 
 public class JenisWisataActivity extends AppCompatActivity {
 RadioButton rd_taman, rd_museum, rd_kolam, rd_foto, rd_semua;
+ImageButton btn_cari_wisata;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,35 +22,45 @@ RadioButton rd_taman, rd_museum, rd_kolam, rd_foto, rd_semua;
         rd_foto = findViewById(R.id.rd_foto);
         rd_semua = findViewById(R.id.rd_semua);
 
+        btn_cari_wisata = findViewById(R.id.btn_cari_wisata);
+
+        btn_cari_wisata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(JenisWisataActivity.this,CariActivity.class);
+                startActivity(intent);
+            }
+        });
+
         rd_taman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetChecked();
                 rd_taman.setChecked(true);
+                rd_semua.setChecked(false);
             }
         });
 
         rd_museum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetChecked();
                 rd_museum.setChecked(true);
+                rd_semua.setChecked(false);
             }
         });
 
         rd_kolam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetChecked();
                 rd_kolam.setChecked(true);
+                rd_semua.setChecked(false);
             }
         });
 
         rd_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetChecked();
                 rd_foto.setChecked(true);
+                rd_semua.setChecked(false);
             }
         });
 
