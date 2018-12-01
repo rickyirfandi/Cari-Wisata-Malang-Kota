@@ -21,16 +21,20 @@ import com.google.android.gms.location.SettingsClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
 
 public class CariActivity extends AppCompatActivity {
     TextView status;
+    List<WisataModel> listWisata;
 
     private LocationRequest mLocationRequest;
 
-    private long UPDATE_INTERVAL = 10 * 10000;  /* 10 secs */
-    private long FASTEST_INTERVAL = 20000; /* 2 sec */
+    private long UPDATE_INTERVAL = 10 * 10000;
+    private long FASTEST_INTERVAL = 20000;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
 
     @Override
@@ -39,6 +43,7 @@ public class CariActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cari);
 
         status = findViewById(R.id.textView4);
+
         startLocationUpdates();
         BuatListWisata();
 
@@ -46,19 +51,61 @@ public class CariActivity extends AppCompatActivity {
 
     private void BuatListWisata(){
         String JSON = Data.JSON_Data;
+        listWisata = new ArrayList<>();
+        String msg = "obj : ";
+
         try{
             JSONArray wisata = new JSONArray(JSON);
 
-            String test = "";
             for (int i = 0; i < wisata.length(); i++) {
-                JSONObject c = wisata.getJSONObject(i);
-                String id = c.getString("id");
-                String nama = c.getString("nama");
-                String alamat = c.getString("alamat");
-                test += "\n id/nama/alamat\n" + id + nama + alamat;
+                JSONObject temp = wisata.getJSONObject(i);
+                String id =  temp.getString("id");
+                String nama = temp.getString("nama");
+                String alamat = temp.getString("alamat");
+                String kategori = temp.getString("kategori");
+                String foto = temp.getString("foto");
+                double latitude = temp.getDouble("latitude");
+                double longitude = temp.getDouble("longitude");
+                double jarak = Jarak(Data.latitude, Data.longitude,latitude,longitude);
+                int harga = temp.getInt("harga");
+                int rating = temp.getInt("rating");
+                int review = temp.getInt("review");
+                
+                if(kategori.equalsIgnoreCase("Wisata Taman")){
+                    if(Data.WISATA_TAMAN){
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        listWisata.add(tmp);
+                        //bikin obj
+                    }
+                } else if (kategori.equalsIgnoreCase("Wisata Museum")){
+                    if(Data.WISATA_MUSEUM){
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        listWisata.add(tmp);
+                        //bikin obj
+                    }
+                } else if (kategori.equalsIgnoreCase("Wisata Kolam")){
+                    if(Data.WISATA_KOLAM){
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        listWisata.add(tmp);
+                        //bikin obj
+                    }
+                } else if (kategori.equalsIgnoreCase("Wisata Foto")){
+                    if(Data.WISATA_FOTO){
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        listWisata.add(tmp);
+                        //bikin obj
+                    }
+                } else {
+
+                }
             }
 
-            status.setText(test);
+            for(int i = 0; i < listWisata.size(); i++){
+                String nama = listWisata.get(i).nama;
+                msg += nama + " : ";
+            }
+
+            status.setText(msg);
 
         } catch(Exception e){
             e.printStackTrace();
