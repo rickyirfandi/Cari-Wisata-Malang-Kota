@@ -70,7 +70,7 @@ public class CariActivity extends AppCompatActivity {
                 int harga = temp.getInt("harga");
                 int rating = temp.getInt("rating");
                 int review = temp.getInt("review");
-                
+
                 if(kategori.equalsIgnoreCase("Wisata Taman")){
                     if(Data.WISATA_TAMAN){
                         WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
