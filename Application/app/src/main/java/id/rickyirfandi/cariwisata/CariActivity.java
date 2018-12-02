@@ -2,12 +2,14 @@ package id.rickyirfandi.cariwisata;
 
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,11 +32,11 @@ import static com.google.android.gms.location.LocationServices.getFusedLocationP
 public class CariActivity extends AppCompatActivity {
     TextView status;
     List<WisataModel> listWisata;
-
+    boolean locationCapture = false;
     private LocationRequest mLocationRequest;
 
     private long UPDATE_INTERVAL = 10 * 10000;
-    private long FASTEST_INTERVAL = 20000;
+    private long FASTEST_INTERVAL = 10 * 10000;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
 
     @Override
@@ -45,7 +47,7 @@ public class CariActivity extends AppCompatActivity {
         status = findViewById(R.id.textView4);
 
         startLocationUpdates();
-        BuatListWisata();
+
 
     }
 
@@ -67,6 +69,11 @@ public class CariActivity extends AppCompatActivity {
                 double latitude = temp.getDouble("latitude");
                 double longitude = temp.getDouble("longitude");
                 double jarak = Jarak(Data.latitude, Data.longitude,latitude,longitude);
+                Log.i("myTag","add object  : " + nama);
+                Log.i("myTag","jaraknya  : " + jarak);
+                Log.i("myTag","lati  : " + latitude);
+                Log.i("myTag","longi  : " + longitude);
+                Log.i("myTag","-------------------");
                 int harga = temp.getInt("harga");
                 int rating = temp.getInt("rating");
                 int review = temp.getInt("review");
@@ -144,6 +151,19 @@ public class CariActivity extends AppCompatActivity {
                             Location location = locationResult.getLastLocation();
                             Data.latitude = location.getLatitude();
                             Data.longitude = location.getLongitude();
+                            Log.i("myTag","Latitude  : " + location.getLatitude());
+                            Log.i("myTag","Longitude  : " + location.getLongitude());
+
+                            BuatListWisata();
+
+                            Log.i("myTag","initiate topsis");
+                            TOPSIS topsis = new TOPSIS(listWisata);
+                            WisataModel[] hasil;
+                            hasil = topsis.HitungTOPSIS();
+                            Intent intent = new Intent(CariActivity.this, RekomendasiActivity.class);
+                            Data.HasilRekomendasi = hasil;
+                            startActivity(intent);
+                            finish();
                         }
                     },
                     Looper.myLooper());
@@ -154,11 +174,16 @@ public class CariActivity extends AppCompatActivity {
 
     //Haversine Formula
     public double Jarak(double lat1, double lon1, double lat2, double lon2){
+
         int RADIUS_BUMI = 6371;
-        double lat1Rad = Math.toRadians(lat1);
-        double lat2Rad = Math.toRadians(lat2);
-        double deltaLonRad = Math.toRadians(lon2 - lon1);
-        double hasil = Math.acos(Math.sin(lat1Rad) * Math.sin(lat2Rad) + Math.cos(lat1Rad) * Math.cos(lat2Rad) * Math.cos(deltaLonRad)) * RADIUS_BUMI;
-        return (hasil*1000); // in meters
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        double initialLat = Math.toRadians(lat1);
+        double finalLat = Math.toRadians(lat2);
+
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(initialLat) * Math.cos(finalLat);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return RADIUS_BUMI * c;
     }
 }
