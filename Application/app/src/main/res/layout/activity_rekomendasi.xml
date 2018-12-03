@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash_bg"
     tools:context=".RekomendasiActivity">
 
     <TextView
@@ -11,41 +12,40 @@
         android:layout_width="360dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textSize="18sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintTop_toBottomOf="@+id/alamat1" />
 
     <TextView
         android:id="@+id/alamat2"
         android:layout_width="358dp"
-        android:layout_height="73dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="150dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rekomendasi1" />
+        app:layout_constraintTop_toBottomOf="@+id/rekomendasi2" />
 
     <TextView
         android:id="@+id/rekomendasi1"
         android:layout_width="360dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textSize="18sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,13 +56,15 @@
 
     <TextView
         android:id="@+id/alamat1"
-        android:layout_width="358dp"
-        android:layout_height="73dp"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rekomendasi1" />
 
@@ -71,28 +73,73 @@
         android:layout_width="360dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textSize="18sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintTop_toBottomOf="@+id/alamat2" />
 
     <TextView
         android:id="@+id/alamat3"
         android:layout_width="358dp"
-        android:layout_height="73dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="150dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rekomendasi2" />
+        app:layout_constraintTop_toBottomOf="@+id/rekomendasi3" />
+
+    <ImageButton
+        android:id="@+id/btn_nav1"
+        android:layout_width="176dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alamat1"
+        app:srcCompat="@drawable/tombol_nav" />
+
+    <ImageButton
+        android:id="@+id/btn_nav2"
+        android:layout_width="177dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alamat2"
+        app:srcCompat="@drawable/tombol_nav" />
+
+    <ImageButton
+        android:id="@+id/btn_nav3"
+        android:layout_width="178dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alamat3"
+        app:srcCompat="@drawable/tombol_nav" />
+
 </android.support.constraint.ConstraintLayout>

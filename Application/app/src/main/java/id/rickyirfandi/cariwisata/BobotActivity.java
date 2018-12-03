@@ -1,6 +1,8 @@
 package id.rickyirfandi.cariwisata;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -129,8 +131,21 @@ final int BOBOT_TINGGI = 9;
         btn_selanjutnya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BobotActivity.this,JenisWisataActivity.class);
-                startActivity(intent);
+                if((Data.BOBOT_JARAK==0)||(Data.BOBOT_HARGA==0)||(Data.BOBOT_RATING==0)||(Data.BOBOT_REVIEW==0)) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(BobotActivity.this).create();
+                    alertDialog.setTitle("Maaf");
+                    alertDialog.setMessage("Ada prioritas kriteria yang belum dipilih");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                } else {
+                    Intent intent = new Intent(BobotActivity.this, JenisWisataActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

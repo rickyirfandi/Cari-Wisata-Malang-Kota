@@ -29,6 +29,14 @@ ImageButton btn_cari, btn_about;
             }
         });
 
+        btn_about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this,AboutActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

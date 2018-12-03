@@ -25,7 +25,8 @@
         <activity android:name=".BobotActivity" />
         <activity android:name=".JenisWisataActivity" />
         <activity android:name=".CariActivity" />
-        <activity android:name=".RekomendasiActivity"></activity>
+        <activity android:name=".RekomendasiActivity" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>
