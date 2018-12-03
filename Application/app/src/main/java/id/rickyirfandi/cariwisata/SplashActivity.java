@@ -100,7 +100,7 @@ public class SplashActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             Data.JSON_Data = JSON_Wisata;
-            status.setText(JSON_Wisata);
+            status.setText("Memuat");
             httpConn.disconnect();
         }
 

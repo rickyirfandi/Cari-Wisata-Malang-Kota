@@ -112,7 +112,7 @@ public class CariActivity extends AppCompatActivity {
                 msg += nama + " : ";
             }
 
-            status.setText(msg);
+            status.setText("Mencari Rekomendasi");
 
         } catch(Exception e){
             e.printStackTrace();
