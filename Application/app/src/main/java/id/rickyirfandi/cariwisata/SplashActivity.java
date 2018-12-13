@@ -20,6 +20,7 @@ import java.net.URL;
 public class SplashActivity extends AppCompatActivity {
     private TextView status;
     private String JSON_Wisata;
+    private boolean PHONE_OFFLINE = false;
     private HttpURLConnection httpConn;
 
     @Override
@@ -35,8 +36,10 @@ public class SplashActivity extends AppCompatActivity {
                 try {
                     DownloadDataWisata("http://serviswaterheatermalang.com/wisata/darurat.php");
                     Thread.sleep(2000);
-                    Intent intent = new Intent(SplashActivity.this, MenuActivity.class);
-                    startActivity(intent);
+                    if(!PHONE_OFFLINE){
+                        Intent intent = new Intent(SplashActivity.this, MenuActivity.class);
+                        startActivity(intent);
+                    }
                     finish();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -56,6 +59,7 @@ public class SplashActivity extends AppCompatActivity {
             new DownloadTask().execute(urlStr);
         } else {
             status.setText("Error, tidak ada koneksi Internet.");
+            PHONE_OFFLINE = true;
         }
     }
 

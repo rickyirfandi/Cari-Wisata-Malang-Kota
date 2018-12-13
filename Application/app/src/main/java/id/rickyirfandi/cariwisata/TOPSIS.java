@@ -35,12 +35,20 @@ public class TOPSIS {
     //STEP 1 : mendapatkan pembagi dari masing masing kriteria
     private void HITUNG_PEMBAGI (){
         double jarak = 0;
-        int harga = 0, review = 0, rating = 0;
+        double harga = 0, review = 0, rating = 0;
         for(int i = 0; i < listWisata.size(); i++){
-            jarak += (listWisata.get(i).getJarak() * listWisata.get(i).getJarak());
-            harga += (listWisata.get(i).getHarga() * listWisata.get(i).getHarga());
-            review += (listWisata.get(i).getReview() * listWisata.get(i).getReview());
-            rating += (listWisata.get(i).getRating() * listWisata.get(i).getRating());
+            double harga_ = (listWisata.get(i).getHarga());
+            double jarak_ = listWisata.get(i).getJarak();
+            double review_ = listWisata.get(i).getReview();
+            double rating_ = listWisata.get(i).getRating();
+            harga_ = (harga_ * harga_);
+            jarak_ = (jarak_ * jarak_);
+            review_ = (review_*review_);
+            rating_ = (rating_ * rating_);
+            harga = harga + harga_;
+            jarak = jarak + jarak_;
+            review = review + review_;
+            rating = rating + rating_;
         }
         PEMBAGI_JARAK = Math.sqrt(jarak);
         PEMBAGI_HARGA = Math.sqrt(harga);
@@ -102,6 +110,10 @@ public class TOPSIS {
                     BOBOT_HARGA = Data.BOBOT_HARGA,
                     BOBOT_RATING = Data.BOBOT_RATING,
                     BOBOT_REVIEW = Data.BOBOT_REVIEW;
+        Log.i("myTag","\n\nBOBOT_JARAK : " + BOBOT_JARAK);
+        Log.i("myTag","\n\nBOBOT_HARGA : " + BOBOT_HARGA);
+        Log.i("myTag","\n\nBOBOT_RATING : " + BOBOT_RATING);
+        Log.i("myTag","\n\nBOBOT_REVIEW : " + BOBOT_REVIEW);
 
         for(int i = 0; i < listWisata.size(); i++){
             for (int j = 0; j < 4; j++ ){
@@ -120,6 +132,7 @@ public class TOPSIS {
                         break;
                     case 2:
                         double review = MATRIX_NORMALISASI[i][j];
+                        msg += "(  " + review+" X " +BOBOT_REVIEW+")" ;
                         review = review * BOBOT_REVIEW;
                         MATRIX_TERBOBOT[i][j] = review;
                         msg += MATRIX_TERBOBOT[i][j] + "  ";

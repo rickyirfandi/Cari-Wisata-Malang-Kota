@@ -31,14 +31,6 @@ public class WisataModel {
         return alamat;
     }
 
-    public String getKategori() {
-        return kategori;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
     public double getLatitude() {
         return latitude;
     }

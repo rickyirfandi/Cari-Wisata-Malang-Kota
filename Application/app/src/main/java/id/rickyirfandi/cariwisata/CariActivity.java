@@ -32,7 +32,6 @@ import static com.google.android.gms.location.LocationServices.getFusedLocationP
 public class CariActivity extends AppCompatActivity {
     TextView status;
     List<WisataModel> listWisata;
-    boolean locationCapture = false;
     private LocationRequest mLocationRequest;
 
     private long UPDATE_INTERVAL = 10 * 10000;
@@ -68,15 +67,17 @@ public class CariActivity extends AppCompatActivity {
                 String foto = temp.getString("foto");
                 double latitude = temp.getDouble("latitude");
                 double longitude = temp.getDouble("longitude");
-                double jarak = Jarak(Data.latitude, Data.longitude,latitude,longitude);
+                //double jarak = Jarak(Data.latitude, Data.longitude,latitude,longitude);
+                double jarak = Jarak(-7.953697, 112.614654,latitude,longitude);
                 Log.i("myTag","add object  : " + nama);
                 Log.i("myTag","jaraknya  : " + jarak);
                 Log.i("myTag","lati  : " + latitude);
                 Log.i("myTag","longi  : " + longitude);
-                Log.i("myTag","-------------------");
                 int harga = temp.getInt("harga");
                 int rating = temp.getInt("rating");
                 int review = temp.getInt("review");
+                Log.i("myTag","harga  : " + harga);
+                Log.i("myTag","-------------------");
 
                 if(kategori.equalsIgnoreCase("Wisata Taman")){
                     if(Data.WISATA_TAMAN){
