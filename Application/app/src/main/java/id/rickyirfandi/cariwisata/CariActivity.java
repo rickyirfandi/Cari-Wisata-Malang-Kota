@@ -64,11 +64,10 @@ public class CariActivity extends AppCompatActivity {
                 String nama = temp.getString("nama");
                 String alamat = temp.getString("alamat");
                 String kategori = temp.getString("kategori");
-                String foto = temp.getString("foto");
                 double latitude = temp.getDouble("latitude");
                 double longitude = temp.getDouble("longitude");
                 //double jarak = Jarak(Data.latitude, Data.longitude,latitude,longitude);
-                double jarak = Jarak(-7.953697, 112.614654,latitude,longitude);
+                double jarak = Jarak(-7.953922, 112.614548,latitude,longitude);
                 Log.i("myTag","add object  : " + nama);
                 Log.i("myTag","jaraknya  : " + jarak);
                 Log.i("myTag","lati  : " + latitude);
@@ -81,25 +80,25 @@ public class CariActivity extends AppCompatActivity {
 
                 if(kategori.equalsIgnoreCase("Wisata Taman")){
                     if(Data.WISATA_TAMAN){
-                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,latitude,longitude,jarak,harga,rating,review);
                         listWisata.add(tmp);
                         //bikin obj
                     }
                 } else if (kategori.equalsIgnoreCase("Wisata Museum")){
                     if(Data.WISATA_MUSEUM){
-                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,latitude,longitude,jarak,harga,rating,review);
                         listWisata.add(tmp);
                         //bikin obj
                     }
                 } else if (kategori.equalsIgnoreCase("Wisata Kolam")){
                     if(Data.WISATA_KOLAM){
-                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,latitude,longitude,jarak,harga,rating,review);
                         listWisata.add(tmp);
                         //bikin obj
                     }
                 } else if (kategori.equalsIgnoreCase("Wisata Foto")){
                     if(Data.WISATA_FOTO){
-                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,foto,latitude,longitude,jarak,harga,rating,review);
+                        WisataModel tmp = new WisataModel(id,nama,alamat,kategori,latitude,longitude,jarak,harga,rating,review);
                         listWisata.add(tmp);
                         //bikin obj
                     }
@@ -164,7 +163,9 @@ public class CariActivity extends AppCompatActivity {
                             Intent intent = new Intent(CariActivity.this, RekomendasiActivity.class);
                             Data.HasilRekomendasi = hasil;
                             startActivity(intent);
+                            getFusedLocationProviderClient(CariActivity.this).removeLocationUpdates(this);
                             finish();
+
                         }
                     },
                     Looper.myLooper());

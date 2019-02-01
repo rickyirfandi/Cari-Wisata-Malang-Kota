@@ -1,16 +1,15 @@
 package id.rickyirfandi.cariwisata;
 
 public class WisataModel {
-    String id, nama, alamat, kategori, foto;
+    String id, nama, alamat, kategori;
     double latitude, longitude, jarak;
     int harga, rating,review;
 
-    public WisataModel(String id, String nama, String alamat, String kategori, String foto, double latitude, double longitude, double jarak, int harga, int rating, int review) {
+    public WisataModel(String id, String nama, String alamat, String kategori, double latitude, double longitude, double jarak, int harga, int rating, int review) {
         this.id = id;
         this.nama = nama;
         this.alamat = alamat;
         this.kategori = kategori;
-        this.foto = foto;
         this.latitude = latitude;
         this.longitude = longitude;
         this.jarak = jarak;

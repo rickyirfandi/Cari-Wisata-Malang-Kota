@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run(){
                 status.setText("Mengunduh data yang diperlukan");
                 try {
-                    DownloadDataWisata("http://serviswaterheatermalang.com/wisata/darurat.php");
+                    DownloadDataWisata("http://rickyirfandi.com/CariWisata/DataWisata.php");
                     Thread.sleep(2000);
                     if(!PHONE_OFFLINE){
                         Intent intent = new Intent(SplashActivity.this, MenuActivity.class);

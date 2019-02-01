@@ -104,7 +104,7 @@ final int BOBOT_TINGGI = 9;
             @Override
             public void onClick(View v) {
                 Data.BOBOT_RATING = BOBOT_TINGGI;
-                txt_rating.setText("Rating : RATING");
+                txt_rating.setText("Rating : TINGGI");
             }
         });
         btn_rendah_review.setOnClickListener(new View.OnClickListener() {
