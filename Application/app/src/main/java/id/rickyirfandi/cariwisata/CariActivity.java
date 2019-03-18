@@ -66,8 +66,8 @@ public class CariActivity extends AppCompatActivity {
                 String kategori = temp.getString("kategori");
                 double latitude = temp.getDouble("latitude");
                 double longitude = temp.getDouble("longitude");
-                //double jarak = Jarak(Data.latitude, Data.longitude,latitude,longitude);
-                double jarak = Jarak(-7.953922, 112.614548,latitude,longitude);
+                double jarak = Jarak(Data.latitude, Data.longitude,latitude,longitude);
+                //double jarak = Jarak(-7.949603, 112.614939,latitude,longitude);
                 Log.i("myTag","add object  : " + nama);
                 Log.i("myTag","jaraknya  : " + jarak);
                 Log.i("myTag","lati  : " + latitude);
