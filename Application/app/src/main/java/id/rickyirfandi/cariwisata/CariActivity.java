@@ -44,9 +44,9 @@ public class CariActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cari);
 
         status = findViewById(R.id.textView4);
-
+        Log.i("myTag","initiate mulai gps");
         startLocationUpdates();
-
+        Log.i("myTag","sudah jalan");
 
     }
 
