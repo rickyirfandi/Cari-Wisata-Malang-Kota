@@ -22,33 +22,33 @@
 
 ## Tangkapan Layar
   Berikut merupakan contoh tangkapan layar dari aplikasi Cari Wisata Malang Kota
-  <p align="center" width="180" height="360">
-  <img src="Screenshot/splashscreen.png">
+  <p align="center">
+  <img src="Screenshot/splashscreen.png" width="360" height="720">
   </p>
   - Splashscreen, ditampilkan saat aplikasi pertamakali dijalankan dimana pada
     saat tersebut dilakukan pengunduhan data objek wisata dari server.
 
-  <p align="center" width="180" height="360">
-  <img src="Screenshot/menu.png">
+  <p align="center">
+  <img src="Screenshot/menu.png" width="360" height="720">
   </p>
   - Menu, ditampilkan ketika aplikasi selesai mengunduh data objek wisata. digunakan
     untuk memilih menu untuk mencari wisata atau about.
 
-  <p align="center" width="180" height="360">
-  <img src="Screenshot/bobot.png">
+  <p align="center">
+  <img src="Screenshot/bobot.png" width="360" height="720">
   </p>
   - Bobot, halaman ini ditampilkan ketika pengguna memilih menu cari wisata. halaman
     ini digunakan untuk melakukan input kriteria yang diinginkan pengguna. kriteria
     ini nantinya akan dijadikan dasar perhitungan pencarian Wisata.
 
-  <p align="center" width="180" height="360">
-  <img src="Screenshot/jenis.png">
+  <p align="center">
+  <img src="Screenshot/jenis.png" width="360" height="720">
   </p>
   - Jenis Wisata, halaman ini ditampilkan ketika pengguna telah melakukan input
     kriteria, dan memilih jenis wisata yang ingin dicari oleh pengguna.
 
-  <p align="center" width="180" height="360">
-  <img src="Screenshot/rekomendasi.png">
+  <p align="center">
+  <img src="Screenshot/rekomendasi.png" width="360" height="720">
   </p>
   - Rekomendasi, halaman ini ditampilkan ketika pengguna telah memilih jenis Wisata
     yang diinginkan dan melakukan pencarian wisata. Setelah pencarian wisata selesai,
