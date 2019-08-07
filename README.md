@@ -72,4 +72,4 @@
 
 ## Lisensi
 
-[![BY](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg)](http://creativecommons.org/licenses/by/4.0/)
+[GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html).
