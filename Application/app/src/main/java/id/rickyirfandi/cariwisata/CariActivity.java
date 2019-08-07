@@ -183,9 +183,10 @@ public class CariActivity extends AppCompatActivity {
         double initialLat = Math.toRadians(lat1);
         double finalLat = Math.toRadians(lat2);
 
-        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(initialLat) * Math.cos(finalLat);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        return RADIUS_BUMI * c;
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2);
+        double b = Math.sin(dLon/2) * Math.sin(dLon/2);
+        double c = a + Math.cos(initialLat) * Math.cos(finalLat) * b;
+        double d = 2 * RADIUS_BUMI * Math.asin(Math.sqrt(c)) ;
+        return d;
     }
 }
